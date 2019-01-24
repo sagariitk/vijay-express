@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title> Contact us </title>
+        <link rel="stylesheet" href="/public/css/myStyles.css">
+    </head>
+    <script src="/public/js/contact.js"></script>
+    <body>
+        <header>
+            <nav>
+                <div class = topnav>
+                    <ul class="topnavitems">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/userportal">User Portal</a></li>
+                            <li><a href="/adminportal">Admin Portal</a></li>
+                            <li><a href="/login">User Login</a></li>
+                            <li><a href="/login">Admin Login</a></li>
+                            <li><a href="/contact">Contact us</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>  
+        </header>
+        <div>
+            <h2>Contact us</h2>
+        </div>
+        <form action="/contact" name="contactform" method="POST" class='contact_form' >
+            Your Name: <input type="text" name ="name" placeholder="Name" ><br><br>
+            Your Email: <input type="email" name ="email" placeholder="email" ><br><br>
+            Your Query: <input type="text" name="query" placeholder="" style="height:100px; text-align:top;"><br><br>
+            <input type="submit" value="submit" onclick="return validatecontactform()">
+        </form>
+        <footer class = 'footer'>&copy; Copyright 2019 Vijay Yadav</footer>
+    </body>
+</html>

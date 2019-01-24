@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title> Admin page </title>
+        <link rel="stylesheet" href="/public/css/myStyles.css">
+    </head>
+    <script>
+            function UserAction() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("demo").innerHTML =
+                            this.responseText;
+                    }
+                };
+                xhttp.open("GET", "http://localhost:1337/getusers", true);
+                xhttp.send(); 
+            }
+    </script>
+    <body>
+        <header>
+            <nav>
+                <div class = topnav>
+                    <ul class="topnavitems">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/userportal">User Portal</a></li>
+                            <li><a href="/adminportal">Admin Portal</a></li>
+                            <li><a href="/login">User Login</a></li>
+                            <li><a href="/login">Admin Login</a></li>
+                            <li><a href="/contact">Contact us</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>  
+        </header>
+
+        <h1>New User Addition</h1>
+        <form action="/userAdd" method="POST" class="useraddform">
+            New UserName: <input type="text" name ="username" placeholder="UserName" ><br><br>
+            New Password: <input type="password" name ="password" placeholder="Password" ><br><br>
+            <input type="submit">
+        </form>
+        <h1>Get User Deatils</h1>
+        <form action="/getuser" method="POST" class="getuserform">
+            UserName: <input type="text" name ="username" placeholder="UserName" ><br><br>
+            <input type="submit">
+        </form>
+        <h1>Get All Users</h1>
+        <a href='/getusers'><button>Get all Users</button></a><br>
+        <br><br><br><br><a href='/logout'><button>Logout</button></a><br>
+
+        <br><br>
+        <div id="demo">
+                <h1>Users info will be listed here</h1>
+                <button type="button" onclick="UserAction()">Get Users</button>
+        </div>
+        <footer class = 'footer'>&copy; Copyright 2019 Vijay Yadav</footer>
+    </body>
+</html>
