@@ -271,7 +271,7 @@ app.post('/pets', verifyToken, (req, res) => {
         else {
             if(!req.body.pet_breed || !req.body.owner_name){
                 console.log('pet breed or owner name can not be blank');
-                res.send('pet breed or owner name can not be blank');
+                res.json({msg:'pet breed or owner name can not be blank'});
             }
             else {
                 connection.query('insert into pets(pet_breed, owner_name, owner_contact_no, pet_details) VALUES (\'' + req.body.pet_breed + '\', \'' + req.body.owner_name +'\', \'' + req.body.owner_contact_no + '\', \'' + req.body.pet_description +'\')' , function(error,rows, fields) {
@@ -281,7 +281,7 @@ app.post('/pets', verifyToken, (req, res) => {
                     }
                     catch(err) {
                         console.log('query can not be submitted');
-                        res.redirect('/contact');
+                        res.json({msg: 'query can not be submitted'});
                     }
                 });
             }
@@ -322,7 +322,7 @@ app.get('/pets/:owner_name', function(req,res){
             }
             catch(err) {
                 console.log('query can not be submitted');
-                res.send("no pet found");
+                res.json({msg: "no pet found"});
             }
         }
         else{
@@ -343,7 +343,7 @@ app.delete('/pets', function(req,res){
         }
         catch(err) {
             console.log('query can not be submitted');
-            res.send("no pet found");
+            res.json({msg: "no pet found"});
         }
     });
 });

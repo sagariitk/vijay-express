@@ -1,0 +1,8 @@
+{
+    "apps": [
+        {
+            "name": "vijay-express",
+            "script": "server.js"
+        }
+    ]
+}
